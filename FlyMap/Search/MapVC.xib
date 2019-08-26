@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapVC" customModule="FlyMap" customModuleProvider="target">
+            <connections>
+                <outlet property="mapView" destination="tZk-hT-fBI" id="35u-zm-pW0"/>
+                <outlet property="view" destination="Ern-XC-ajT" id="sNc-vk-Cl1"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Ern-XC-ajT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tZk-hT-fBI">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </mapView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="tZk-hT-fBI" secondAttribute="bottom" id="FFA-5c-P5S"/>
+                <constraint firstItem="tZk-hT-fBI" firstAttribute="leading" secondItem="Ern-XC-ajT" secondAttribute="leading" id="TRH-7i-mEt"/>
+                <constraint firstItem="tZk-hT-fBI" firstAttribute="trailing" secondItem="Ern-XC-ajT" secondAttribute="trailing" id="Ykl-A3-ohX"/>
+                <constraint firstItem="tZk-hT-fBI" firstAttribute="top" secondItem="Ern-XC-ajT" secondAttribute="top" id="j0L-fK-Fc1"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="TE3-S2-pBa"/>
+            <point key="canvasLocation" x="163.768115942029" y="61.607142857142854"/>
+        </view>
+    </objects>
+</document>
