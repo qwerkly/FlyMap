@@ -1,0 +1,6 @@
+framework module Pods_FlyMap {
+  umbrella header "Pods-FlyMap-umbrella.h"
+
+  export *
+  module * { export * }
+}

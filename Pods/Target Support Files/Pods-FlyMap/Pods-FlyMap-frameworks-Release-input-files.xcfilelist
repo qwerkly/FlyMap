@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-FlyMap/Pods-FlyMap-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/IVBezierPathRenderer/IVBezierPathRenderer.framework
+${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework
