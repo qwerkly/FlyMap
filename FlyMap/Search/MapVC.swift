@@ -25,33 +25,18 @@ class MapVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
-        addRoute()
-    }
-    
-    private func deg2rad(_ number: Double) -> Double {
-        return number * .pi / 180
-    }
-    
-    private func addRoute() {
-        let startCoordinate = CLLocationCoordinate2D(latitude: startCity.latitude, longitude: startCity.longitude)
-        let finishCoordinate = CLLocationCoordinate2D(latitude: finishCity.latitude, longitude: finishCity.longitude)
-        let f1 = deg2rad(startCoordinate.latitude)
-        let l1 = deg2rad(startCoordinate.longitude)
-        let f2 = deg2rad(finishCoordinate.latitude)
-        let l2 = deg2rad(finishCoordinate.longitude)
-        let numberOfPoints = 20
-        let delta = (l1 - l2) / Double(numberOfPoints - 1)
-        var location = [CLLocationCoordinate2D]()
-        for i in 0..<numberOfPoints {
-            let l = l1 - delta * i
-            f = (atan())
-        }
+        let locations = [
+            CLLocationCoordinate2D(latitude: 37.7833, longitude: -122.7900),        /* Dallas, TX */
+            CLLocationCoordinate2D(latitude: 32.7767, longitude: -96.7970),         /* San Francisco, CA */
+            CLLocationCoordinate2D(latitude: 42.2814, longitude: -83.7483),         /* Ann Arbor, MI */
+            CLLocationCoordinate2D(latitude: 42.2814, longitude: -83.7483)         /* Ann Arbor, MI */
+        ]
+//        let startCoordinate = CLLocationCoordinate2D(latitude: startCity.latitude, longitude: startCity.longitude)
+//        let finishCoordinate = CLLocationCoordinate2D(latitude: finishCity.latitude, longitude: finishCity.longitude)
 //        var center = centerBetween(coordinate1: startCoordinate, coordinate2: finishCoordinate)
-//        center.latitude += 1
-        
-        let myPolyline = MKPolyline(coordinates: [startCoordinate, finishCoordinate], count: 4)
-//        myPolyline.accessibilityPath
-        mapView.addOverlay(myPolyline)
+        let polyline = MKPolyline(coordinates: locations, count: locations.count)
+        mapView.addOverlay(polyline)
+        mapView.setCenter(locations[0], animated: false)
     }
     
     private func centerBetween(coordinate1: CLLocationCoordinate2D, coordinate2: CLLocationCoordinate2D) -> CLLocationCoordinate2D {
@@ -73,12 +58,39 @@ class MapVC: UIViewController {
         
         return center
     }
+    
+//    private func deg2rad(_ number: Double) -> Double {
+//        return number * .pi / 180
+//    }
+    
+//    private func addRoute() {
+//        let f1 = deg2rad(startCoordinate.latitude)
+//        let l1 = deg2rad(startCoordinate.longitude)
+//        let f2 = deg2rad(finishCoordinate.latitude)
+//        let l2 = deg2rad(finishCoordinate.longitude)
+//        let numberOfPoints = 20
+//        let delta = (l1 - l2) / Double(numberOfPoints - 1)
+//        var location = [CLLocationCoordinate2D]()
+//        for i in 0..<numberOfPoints {
+//            let l = l1 - delta * i
+//            f = (atan())
+//        }
+////        var center = centerBetween(coordinate1: startCoordinate, coordinate2: finishCoordinate)
+////        center.latitude += 1
+//
+//        let myPolyline = MKPolyline(coordinates: [startCoordinate, finishCoordinate], count: 4)
+////        myPolyline.accessibilityPath
+//        mapView.addOverlay(myPolyline)
+//    }
 }
 
 extension MapVC: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        let renderer = CurveLineRenderer(overlay: overlay, mapView: mapView)
-//        renderer.strokeColor = .red
+        let renderer = MKPolylineRenderer(overlay: overlay)
+//        let renderer = IVBezierPathRenderer(overlay: overlay)
+        renderer.strokeColor = .red
+        renderer.lineWidth = 4
+//        renderer.tension = 2.5
         return renderer
     }
 }

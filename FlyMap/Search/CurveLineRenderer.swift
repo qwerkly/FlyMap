@@ -9,42 +9,13 @@
 import Foundation
 import MapKit
 
-class CurveLineRenderer: MKPolylineRenderer {
-    var mapView: MKMapView!
-    
-    override init(overlay: MKOverlay) {
-        super.init(overlay: overlay)
-    }
-    
-    convenience init(overlay: MKOverlay, mapView: MKMapView) {
-        self.init(overlay: overlay)
-        self.mapView = mapView
-//        createPath()
-    }
-    
+class CurveLineRenderer: MKOverlayRenderer {
     override func draw(_ mapRect: MKMapRect, zoomScale: MKZoomScale, in context: CGContext) {
-        let theMapRect = overlay.boundingMapRect
-        
-        guard mapRect.intersects(theMapRect) || self.path != nil else { return }
-        
-        //Do some logic if needed.
-        
-        guard let overlay = overlay as? MKMultiPoint else { return }
-        
-        var points = [CGPoint]()
-        for i in 0..<overlay.pointCount {
-            points.append(point(for: overlay.points()[i]))
-        }
-        if points.count == 0 { return }
-        
         //Create and draw your path
-        let path = CGMutablePath()
-        path.move(to: self.path.currentPoint)
-        
-//        path.addLine(to: CGPoint(x: 0.0, y: 16708800.09227179))
-        path.addLines(between: points)
-        
-        context.addPath(path)
+        context.move(to: context.currentPointOfPath)
+//        centerBetween(coordinate1: <#T##CLLocationCoordinate2D#>, coordinate2: <#T##CLLocationCoordinate2D#>)
+//        context.addArc(center: <#T##CGPoint#>, radius: <#T##CGFloat#>, startAngle: <#T##CGFloat#>, endAngle: <#T##CGFloat#>, clockwise: <#T##Bool#>)
+//        context.addPath(path)
         
         //Customise it
         context.setStrokeColor(UIColor.red.cgColor)
@@ -55,46 +26,6 @@ class CurveLineRenderer: MKPolylineRenderer {
         //And apply it
         context.strokePath()
     }
-    
-//    override func createPath() {
-//        super.createPath()
-//        guard let overlay = overlay as? MKMultiPoint else { return }
-//
-//        var points = [MKMapPoint]()
-//        for i in 0..<overlay.pointCount {
-//            points.append(overlay.points()[i])
-//        }
-//        if points.count == 0 { return }
-    
-//        MK
-        
-//        let path = UIBezierPath()
-//        let point = mapView.convert(points[0].coordinate, toPointTo: mapView)
-//        let endPoint = mapView.convert(points[1].coordinate, toPointTo: mapView)
-//        var center = centerBetween(coordinate1: points[0].coordinate, coordinate2: points[1].coordinate)
-//        center.latitude += 20
-//        let centerCor = mapView.convert(center, toPointTo: mapView)
-//        print(point)
-//        print(endPoint)
-//        path.move(to: point)
-//        path.addLine(to: centerCor)
-        
-//        strokeColor = .red
-//        path.addQuadCurve(to: endPoint, controlPoint: centerCor)
-        
-//        self.path = path.cgPath
-//        UIBezierPath *path = [UIBezierPath bezierPath];
-//
-//        for (NSValue *cgPointValue in cgPoints) {
-//            if ([cgPoints indexOfObject:cgPointValue] == 0) {
-//                [path moveToPoint:cgPointValue.CGPointValue];
-//            }else{
-//                [path addLineToPoint:cgPointValue.CGPointValue];
-//            }
-//        }
-//
-//        self.path = self.tension.floatValue==0?[path bezierFlat].CGPath:[path bezierCardinalWithTension:self.tension.floatValue].CGPath;
-//    }
     
     private func centerBetween(coordinate1: CLLocationCoordinate2D, coordinate2: CLLocationCoordinate2D) -> CLLocationCoordinate2D {
         let lon1 = coordinate1.longitude * .pi / 180
