@@ -58,6 +58,13 @@ class MapVC: UIViewController {
         
         return center
     }
+
+    private func getCenterCoordinate(startCor: CLLocationCoordinate2D, endCor: CLLocationCoordinate2D, height: Double) -> CLLocationCoordinate2D {
+        let direction = CGPoint(x: endCor.longitude - startCor.longitude, y: endCor.latitude - startCor.latitude)
+        let length = sqrt(direction.x * direction.x + direction.y * direction.y)
+        let normal = CGPoint(x: -direction.y / length, y: direction.x / length)
+        let between = CGPoint(x: L1.start.x-L2.start.x, y: L1.start.y-L2.start.y)
+    }
     
 //    private func deg2rad(_ number: Double) -> Double {
 //        return number * .pi / 180
