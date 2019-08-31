@@ -9,15 +9,14 @@
 import UIKit
 import MapKit
 import IVBezierPathRenderer
+import simd
 
 class MapVC: UIViewController {
     @IBOutlet private weak var mapView: MKMapView!
     
-    private var startCity: City! = City(city: "Moscow", latitude: 55.751244, longitude: 37.618423)
-    private var finishCity: City! = City(city: "Istambul", latitude: 41.015137, longitude: 28.979530)
-    
-    private lazy var startCoordinate = CLLocationCoordinate2D(latitude: startCity.latitude, longitude: startCity.longitude)
-    private lazy var finishCoordinate = CLLocationCoordinate2D(latitude: finishCity.latitude, longitude: finishCity.longitude)
+    private var startCity: City! //= City(city: "Moscow", latitude: 55.751244, longitude: 37.618423)
+    private var finishCity: City! //= City(city: "Istambul", latitude: 41.015137, longitude: 28.979530)
+    private var center: CLLocationCoordinate2D!
     
     private var polyline: MKPolyline!
     private let annotation = MKPointAnnotation()
@@ -32,32 +31,42 @@ class MapVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapView.delegate = self
-        annotation.coordinate = startCoordinate
-        mapView.addAnnotation(annotation)
         addPolyline()
         movePosition()
     }
     
     private func addPolyline() {
-        let startCoordinate = CLLocationCoordinate2D(latitude: startCity.latitude, longitude: startCity.longitude)
-        let endCoordinate = CLLocationCoordinate2D(latitude: finishCity.latitude, longitude: finishCity.longitude)
+        annotation.coordinate = startCity.coordinate
+        mapView.addAnnotation(annotation)
+        
+        let start = mapView.convert(startCity.coordinate, toPointTo: mapView)
+        let end = mapView.convert(finishCity.coordinate, toPointTo: mapView)
+        
+        let x3 = 400 * cos(atan(abs((start.x - end.x) / (start.y - end.y))) + (start.x + end.x) / 2)
+        let y3 = 400 * sin(atan(abs((start.x - end.x) / (start.y - end.y))) + (start.y + end.y) / 2)
+        
+        center = mapView.convert(CGPoint(x: x3, y: y3), toCoordinateFrom: mapView)
         
         let locations = [
-            startCoordinate,
-            endCoordinate
+            startCity.coordinate,
+            center!,
+            finishCity.coordinate
         ]
-        
+
         polyline = MKPolyline(coordinates: locations, count: locations.count)
         mapView.addOverlay(polyline)
         mapView.setCenter(locations[0], animated: false)
     }
     
     private func movePosition() {
-        timer = .scheduledTimer(withTimeInterval: 5, repeats: false) { [weak self] _ in
-            UIView.animate(withDuration: 4, animations: {
-                guard let self = self else { return }
-                self.annotation.coordinate = self.finishCoordinate
+        timer = .scheduledTimer(withTimeInterval: 2.5, repeats: false) { [weak self] _ in
+            guard let self = self else { return }
+            UIView.animate(withDuration: 2, animations: {
+                self.annotation.coordinate = self.center
+            }, completion: { _ in
+                UIView.animate(withDuration: 2, animations: {
+                    self.annotation.coordinate = self.finishCity.coordinate
+                })
             })
         }
     }
@@ -89,11 +98,12 @@ class MapVC: UIViewController {
 
 extension MapVC: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        let renderer = MKPolylineRenderer(overlay: overlay)
-//        let renderer = IVBezierPathRenderer(overlay: overlay)
+//        let renderer = MKPolylineRenderer(overlay: overlay)
+        let renderer = IVBezierPathRenderer(overlay: overlay)
         renderer.strokeColor = .red
         renderer.lineWidth = 2
-//        renderer.tension = 2.5
+//        print(renderer.polyline.points())
+        renderer.tension = 2.5
         return renderer
     }
 }

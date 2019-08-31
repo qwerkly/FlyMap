@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		296D9054B589EE3BE60AA1E4 /* Pods_FlyMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F9C2633E8D71F54DAE8C15D /* Pods_FlyMap.framework */; };
+		DE9641AA2319C2230009451E /* CitySearchResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9641A92319C2230009451E /* CitySearchResource.swift */; };
+		DE9641AC2319C2390009451E /* CitySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9641AB2319C2390009451E /* CitySearch.swift */; };
+		DE9641AE2319C2880009451E /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9641AD2319C2880009451E /* City.swift */; };
+		DE9641B02319C4960009451E /* CitySearchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9641AF2319C4960009451E /* CitySearchError.swift */; };
+		DE9641BB231A637A0009451E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9641BA231A637A0009451E /* MapKit.framework */; };
 		DEA4E5F02311A29400061397 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA4E5EF2311A29400061397 /* AppDelegate.swift */; };
 		DEA4E5F22311A29400061397 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA4E5F12311A29400061397 /* MapVC.swift */; };
 		DEA4E5F52311A29400061397 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEA4E5F32311A29400061397 /* Main.storyboard */; };
@@ -16,9 +21,6 @@
 		DEA4E6042311A48300061397 /* MapVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA4E6032311A48300061397 /* MapVC.xib */; };
 		DEA4E607231298B900061397 /* ArrivalPlaceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA4E605231298B900061397 /* ArrivalPlaceVC.swift */; };
 		DEA4E608231298B900061397 /* ArrivalPlaceVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA4E606231298B900061397 /* ArrivalPlaceVC.xib */; };
-		DEA4E60E2312A24500061397 /* CitiesResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA4E60D2312A24500061397 /* CitiesResource.swift */; };
-		DEA4E6102312A2B000061397 /* CRUDApiResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA4E60F2312A2B000061397 /* CRUDApiResource.swift */; };
-		DEA4E6122312ABDC00061397 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA4E6112312ABDC00061397 /* City.swift */; };
 		DEA4E6162313415000061397 /* CurveLineRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA4E6152313415000061397 /* CurveLineRenderer.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +28,11 @@
 		0056C148F9AD64D748EF3005 /* Pods-FlyMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlyMap.release.xcconfig"; path = "Target Support Files/Pods-FlyMap/Pods-FlyMap.release.xcconfig"; sourceTree = "<group>"; };
 		987F1901A1C7E61312553122 /* Pods-FlyMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlyMap.debug.xcconfig"; path = "Target Support Files/Pods-FlyMap/Pods-FlyMap.debug.xcconfig"; sourceTree = "<group>"; };
 		9F9C2633E8D71F54DAE8C15D /* Pods_FlyMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlyMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE9641A92319C2230009451E /* CitySearchResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySearchResource.swift; sourceTree = "<group>"; };
+		DE9641AB2319C2390009451E /* CitySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySearch.swift; sourceTree = "<group>"; };
+		DE9641AD2319C2880009451E /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		DE9641AF2319C4960009451E /* CitySearchError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySearchError.swift; sourceTree = "<group>"; };
+		DE9641BA231A637A0009451E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DEA4E5EC2311A29400061397 /* FlyMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEA4E5EF2311A29400061397 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DEA4E5F12311A29400061397 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
@@ -35,10 +42,7 @@
 		DEA4E5FB2311A29600061397 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DEA4E6032311A48300061397 /* MapVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapVC.xib; sourceTree = "<group>"; };
 		DEA4E605231298B900061397 /* ArrivalPlaceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivalPlaceVC.swift; sourceTree = "<group>"; };
-		DEA4E606231298B900061397 /* ArrivalPlaceVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArrivalPlaceVC.xib; sourceTree = "<group>"; };
-		DEA4E60D2312A24500061397 /* CitiesResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesResource.swift; sourceTree = "<group>"; };
-		DEA4E60F2312A2B000061397 /* CRUDApiResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUDApiResource.swift; sourceTree = "<group>"; };
-		DEA4E6112312ABDC00061397 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		DEA4E606231298B900061397 /* ArrivalPlaceVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ArrivalPlaceVC.xib; path = Search/ArrivalPlaceVC.xib; sourceTree = "<group>"; };
 		DEA4E6152313415000061397 /* CurveLineRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurveLineRenderer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE9641BB231A637A0009451E /* MapKit.framework in Frameworks */,
 				296D9054B589EE3BE60AA1E4 /* Pods_FlyMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -57,6 +62,7 @@
 		8189213AC3F1DC0381875BDC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DE9641BA231A637A0009451E /* MapKit.framework */,
 				9F9C2633E8D71F54DAE8C15D /* Pods_FlyMap.framework */,
 			);
 			name = Frameworks;
@@ -69,6 +75,17 @@
 				0056C148F9AD64D748EF3005 /* Pods-FlyMap.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		DE9641B72319D7180009451E /* CitySearch */ = {
+			isa = PBXGroup;
+			children = (
+				DE9641AD2319C2880009451E /* City.swift */,
+				DE9641AF2319C4960009451E /* CitySearchError.swift */,
+				DE9641AB2319C2390009451E /* CitySearch.swift */,
+				DE9641A92319C2230009451E /* CitySearchResource.swift */,
+			);
+			path = CitySearch;
 			sourceTree = "<group>";
 		};
 		DEA4E5E32311A29400061397 = {
@@ -92,8 +109,13 @@
 		DEA4E5EE2311A29400061397 /* FlyMap */ = {
 			isa = PBXGroup;
 			children = (
-				DEA4E60C23129D5200061397 /* Network */,
-				DEA4E60B23129D3300061397 /* Search */,
+				DE9641B72319D7180009451E /* CitySearch */,
+				DEA4E6152313415000061397 /* CurveLineRenderer.swift */,
+				DEA4E5F12311A29400061397 /* MapVC.swift */,
+				DEA4E6032311A48300061397 /* MapVC.xib */,
+				DEA4E605231298B900061397 /* ArrivalPlaceVC.swift */,
+				DEA4E606231298B900061397 /* ArrivalPlaceVC.xib */,
+				DEA4E5F32311A29400061397 /* Main.storyboard */,
 				DEA4E6022311A42B00061397 /* Supporting Files */,
 			);
 			path = FlyMap;
@@ -108,29 +130,6 @@
 				DEA4E5FB2311A29600061397 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		DEA4E60B23129D3300061397 /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				DEA4E6152313415000061397 /* CurveLineRenderer.swift */,
-				DEA4E5F12311A29400061397 /* MapVC.swift */,
-				DEA4E6032311A48300061397 /* MapVC.xib */,
-				DEA4E605231298B900061397 /* ArrivalPlaceVC.swift */,
-				DEA4E606231298B900061397 /* ArrivalPlaceVC.xib */,
-				DEA4E5F32311A29400061397 /* Main.storyboard */,
-			);
-			path = Search;
-			sourceTree = "<group>";
-		};
-		DEA4E60C23129D5200061397 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				DEA4E60F2312A2B000061397 /* CRUDApiResource.swift */,
-				DEA4E60D2312A24500061397 /* CitiesResource.swift */,
-				DEA4E6112312ABDC00061397 /* City.swift */,
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +166,11 @@
 				TargetAttributes = {
 					DEA4E5EB2311A29400061397 = {
 						CreatedOnToolsVersion = 10.3;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -250,13 +254,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEA4E60E2312A24500061397 /* CitiesResource.swift in Sources */,
-				DEA4E6102312A2B000061397 /* CRUDApiResource.swift in Sources */,
+				DE9641AC2319C2390009451E /* CitySearch.swift in Sources */,
+				DE9641B02319C4960009451E /* CitySearchError.swift in Sources */,
 				DEA4E5F22311A29400061397 /* MapVC.swift in Sources */,
+				DE9641AA2319C2230009451E /* CitySearchResource.swift in Sources */,
 				DEA4E607231298B900061397 /* ArrivalPlaceVC.swift in Sources */,
 				DEA4E6162313415000061397 /* CurveLineRenderer.swift in Sources */,
 				DEA4E5F02311A29400061397 /* AppDelegate.swift in Sources */,
-				DEA4E6122312ABDC00061397 /* City.swift in Sources */,
+				DE9641AE2319C2880009451E /* City.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
