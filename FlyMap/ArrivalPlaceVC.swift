@@ -82,7 +82,6 @@ extension ArrivalPlaceVC: UITableViewDelegate {
 
 extension ArrivalPlaceVC: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        print(range.location)
         guard range.location > 0 || !string.isEmpty else {
             cities = []
             self.clearCurrentTextField()
