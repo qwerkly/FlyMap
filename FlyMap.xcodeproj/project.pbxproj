@@ -21,7 +21,6 @@
 		DEA4E6042311A48300061397 /* MapVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA4E6032311A48300061397 /* MapVC.xib */; };
 		DEA4E607231298B900061397 /* ArrivalPlaceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA4E605231298B900061397 /* ArrivalPlaceVC.swift */; };
 		DEA4E608231298B900061397 /* ArrivalPlaceVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEA4E606231298B900061397 /* ArrivalPlaceVC.xib */; };
-		DEA4E6162313415000061397 /* CurveLineRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA4E6152313415000061397 /* CurveLineRenderer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +42,6 @@
 		DEA4E6032311A48300061397 /* MapVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapVC.xib; sourceTree = "<group>"; };
 		DEA4E605231298B900061397 /* ArrivalPlaceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivalPlaceVC.swift; sourceTree = "<group>"; };
 		DEA4E606231298B900061397 /* ArrivalPlaceVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ArrivalPlaceVC.xib; path = Search/ArrivalPlaceVC.xib; sourceTree = "<group>"; };
-		DEA4E6152313415000061397 /* CurveLineRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurveLineRenderer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				DE9641B72319D7180009451E /* CitySearch */,
-				DEA4E6152313415000061397 /* CurveLineRenderer.swift */,
 				DEA4E5F12311A29400061397 /* MapVC.swift */,
 				DEA4E6032311A48300061397 /* MapVC.xib */,
 				DEA4E605231298B900061397 /* ArrivalPlaceVC.swift */,
@@ -259,7 +256,6 @@
 				DEA4E5F22311A29400061397 /* MapVC.swift in Sources */,
 				DE9641AA2319C2230009451E /* CitySearchResource.swift in Sources */,
 				DEA4E607231298B900061397 /* ArrivalPlaceVC.swift in Sources */,
-				DEA4E6162313415000061397 /* CurveLineRenderer.swift in Sources */,
 				DEA4E5F02311A29400061397 /* AppDelegate.swift in Sources */,
 				DE9641AE2319C2880009451E /* City.swift in Sources */,
 			);
