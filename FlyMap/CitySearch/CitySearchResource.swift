@@ -34,17 +34,11 @@ class CitySearchResource: NSObject, CitySearch {
         
         return Promise<City> { pending in
             search.start { response, error in
-                guard let response = response else {
+                guard let response = response, let mapItem = response.mapItems.first else {
                     pending.reject(CitySearchError.unknown)
                     return
                 }
-                
-                response.mapItems.forEach { mapItem in
-                    if let city = mapItem.placemark.locality {
-                        let title = "\(city), \(mapItem.placemark.country!)"
-                        pending.fulfill(City(title: title, coordinate: mapItem.placemark.coordinate))
-                    }
-                }
+                pending.fulfill(City(coordinate: mapItem.placemark.coordinate))
             }
         }
     }

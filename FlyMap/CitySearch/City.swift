@@ -10,6 +10,5 @@ import Foundation
 import MapKit
 
 struct City {
-    let title: String
     let coordinate: CLLocationCoordinate2D
 }
